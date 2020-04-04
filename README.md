@@ -5,4 +5,4 @@ Node Code For AuthApp
 npm install (to install dependencies).
 
 #run server -:
-node serve
+node server
