@@ -1,12 +1,13 @@
 const express = require("express");
 const middleware = require("./middleware");
 const api = require("./api");
+const cors = require("cors");
 
 //Setting port
 const PORT = process.env.PORT || 8080;
 //creating server
 const app = express();
-
+app.use(cors());
 //middleware call
 app.use(middleware.logger, middleware.bodyParser);
 
