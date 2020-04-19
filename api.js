@@ -19,14 +19,14 @@ router.get('/', (req, res) => {
 
 router.post('/register', (req, res) => {
     if (!req.body.email || !req.body.password) {
-        res.send({msg:"Invalid request !"});
+        res.status(400).send("Invalid request !");
     } else {
         User.find({email: req.body.email},(error, result) => {
             if (error) {
                 res.status(400);
             }
             if (result && result.length > 0) {
-                res.send({msg:"Email already registerd !"});
+                res.status(400).send("Email already registerd !");
             } else {
                 const userData = req.body;
                 const user = new User(userData);
@@ -34,7 +34,7 @@ router.post('/register', (req, res) => {
                 if (error) {
                     res.status(400);
                 } else {
-                    res.send({msg:"User Added!"});
+                    res.status(200).send({msg:"User Added!"});
                 }});
             }
         });
@@ -49,7 +49,7 @@ router.post('/login', (req,res) => {
         } else if (user) {
             res.send(user);
         } else {
-            res.send({msg:"Invalid Records !"});
+            res.status(400).send("Invalid Records !");
         }
     });
 });
