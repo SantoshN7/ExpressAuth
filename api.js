@@ -3,7 +3,7 @@ const User = require('./models/User');
 const router = express.Router()
 
 const mongoose = require("mongoose");
-const dbLink = "mongodb+srv://root_user:gBhvZUiLrv1CLlym@mongodb-h6asz.mongodb.net/DBAuth?retryWrites=true&w=majority";
+const dbLink = ""; //Add your mongoDB link here
 
 mongoose.connect(dbLink, error => {
     if (error) {
